@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+header {
+    font-size: 2rem;
+    margin-bottom: 5rem;
+    position: relative; 
+
+}
+
+#current-date {
+    font-size: 0.65em;
+    color: #555;
+    position: absolute; /* Position the date absolutely within the header */
+    right: 15%; /* Align to the far right */
+    top: 65%; /* Align to the top, then adjust with transform for vertical centering */
+    transform: translateY(80%); /* Center vertically */
+    padding-right: 1em; /* Add some padding if needed */
+    margin-top: 1rem;
+}
+
+form input, form button, form select {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+}
+
+form input {
+    flex-grow: 1;
+    background: #fff;
+    outline-color: #4a69bd;
+}
+
+form button {
+    background-color: #4a69bd;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover, form button:focus, form input:focus {
+    background-color: white;
+    outline: none;
+    box-shadow: 0 0 0 2px white; /* Focus indicator */
+}
+
+.todo-container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 1rem;
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todo {
+    background: white;
+    color: black;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.complete-btn, .trash-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.trash-btn {
+    color: #e74c3c;
+}
+
+.todo-item {
+    flex-grow: 1;
+    padding: 0 1rem;
+}
+
+.fa-trash, .fa-check-circle {
+    pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #b2bec3;
+}
+
+.slide {
+    transform: translateX(10rem);
+    opacity: 0;
+}
+
+select {
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #fff;
+    color: #4a69bd;
+    cursor: pointer;
+}
+
+.main {
+    flex: 1;
+    width: 100%;
+}
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+.task-input form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.task-input .todo-input {
+    flex: 1;
+    min-width: 250px;
+}
+
+.task-input .task-select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.task-input .todo-button {
+    padding: 0.5rem 1rem;
+    background-color: #4a69bd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.task-input .todo-button:hover {
+    background-color: #3b5283;
+}
+
+/* Eisenhower Matrix Layout */
+.matrix-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 50px;
+    position: relative;
+}
+
+/* Matrix Labels Container */
+.matrix-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+/* Important and Not Important Labels */
+.important-label, .not-important-label {
+    white-space: nowrap;
+    text-align: center;
+    transform-origin: center;
+    margin-top: 10px;
+    position: absolute;
+    top: -45px;
+}
+
+.important-label {
+    left: 120%;
+    transform: translateX(150%);
+}
+
+.not-important-label {
+    left: 40%;
+    transform: translateX(420%);
+}
+
+/* Urgent and Not Urgent Labels */
+.urgent-label, .not-urgent-label {
+    white-space: nowrap;
+    text-align: center;
+    transform-origin: center;
+    margin-top: 30px;
+    position: absolute;
+}
+
+.urgent-label {
+    right: 30px;
+    top: 1000%;
+    transform: translateY(-30%);
+}
+
+.not-urgent-label {
+    right: 30px;
+    bottom: 10%;
+    transform: translateY(617%);
+}
+
+.eisenhower-matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 100px;
+}
+
+.quadrant {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+.quadrant h3 {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .task-input form {
+        flex-direction: column;
+    }
+
+    .task-input .todo-input,
+    .task-input .task-select,
+    .task-input .todo-button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .matrix-container {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .matrix-labels {
+        transform: none;
+        position: static;
+        width: auto;
+        height: auto;
+        grid-template-columns: none;
+        grid-template-rows: none;
+    }
+
+    .eisenhower-matrix {
+        margin-top: 20px;
+    }
+}
+
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+
+.toast {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    opacity: 0.9;
+    animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 0.9; }
+    33% { opacity: 0.9; }
+    100% { opacity: 0; }
+}
+

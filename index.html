@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Font Awesome cdn css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles.css">
+    <title>To Do List</title>
+</head>
+<body>
+
+    <header>
+        <h1>My To Do List</h1>
+        <div id="current-date"></div>
+    </header>
+
+    <main>
+        <section class="task-input">
+            <form id="task-form">
+                <input type="text" class="todo-input" placeholder="Add a new task...">
+                
+                <label for="urgency-select">Urgency:</label>
+                <select id="urgency-select" name="urgency" class="task-select">
+                    <option value="urgent">Urgent</option>
+                    <option value="not-urgent">Not Urgent</option>
+                </select>
+                
+                <label for="importance-select">Importance:</label>
+                <select id="importance-select" name="importance" class="task-select">
+                    <option value="important">Important</option>
+                    <option value="not-important">Not Important</option>
+                </select>
+                
+                <button class="todo-button" type="submit">
+                    <i class="fas fa-plus-circle fa-lg"></i> Add task
+                </button>
+            </form>
+        </section>
+        <div class="matrix-container">
+            <div class="matrix-labels">
+                <div class="label urgent-label">URGENT</div>
+                <div class="label not-urgent-label">NOT URGENT</div>
+                <div class="label important-label">IMPORTANT</div>
+                <div class="label not-important-label">NOT IMPORTANT</div>
+            </div>
+            <div class="eisenhower-matrix">
+                <div id="quadrant-I" class="quadrant">
+                    <h3>Quadrant I</h3>
+                    <ul class="todo-list"></ul>
+                </div>
+                <div id="quadrant-II" class="quadrant">
+                    <h3>Quadrant II</h3>
+                    <ul class="todo-list"></ul>
+                </div>
+                <div id="quadrant-III" class="quadrant">
+                    <h3>Quadrant III</h3>
+                    <ul class="todo-list"></ul>
+                </div>
+                <div id="quadrant-IV" class="quadrant">
+                    <h3>Quadrant IV</h3>
+                    <ul class="todo-list"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Nam Tran To Do List App</p>
+    </footer>
+    <div id="toast-container"></div>
+    <script src="./script.js"></script>
+</body>
+</html>
